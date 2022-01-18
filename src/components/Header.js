@@ -1,11 +1,15 @@
 import react from "react"
+import Button from "./Button"
 
-const Header = ({ title }) =>
-{
+const Header = ({ title }) => {
+    const addFunction = (e) => {
+        console.log("Ther's something to do");
+    }
+
     return (
         <header className="header">
             <h1>{title}</h1>
-            <button className='btn'>Add</button>
+            <Button content="Add" onClicked={addFunction} />
         </header>
     )
 }
