@@ -2,7 +2,10 @@ import Header from './components/Header'
 import React from 'react'
 import Tasks from './components/Tasks'
 import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import AddTask from './components/AddTask'
+import Footer from './components/Footer'
+import About from './components/About'
 
 const App = () => {
   const [showAddForm, setShowAddForm] = useState(false)
@@ -72,19 +75,36 @@ const App = () => {
   }
 
   return (
-    <div className="container">
-      <Header
-        title="Task manager"
-        onAddBtnClicked={() => setShowAddForm(!showAddForm)}
-        isFormOpen={showAddForm}
-      />
-      {showAddForm && <AddTask onAdd={addTask} />}
-      {tasks.length ? (
-        <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
-      ) : (
-        <center>No tasks</center>
-      )}
-    </div>
+    <Router>
+      <div className="container">
+        <Header
+          title="Task manager"
+          onAddBtnClicked={() => setShowAddForm(!showAddForm)}
+          isFormOpen={showAddForm}
+        />
+        {showAddForm && <AddTask onAdd={addTask} />}
+
+        <Routes>
+          <Route path="/about" element={<About />} />
+          <Route
+            path="/"
+            element={
+              tasks.length ? (
+                <Tasks
+                  tasks={tasks}
+                  onDelete={deleteTask}
+                  onToggle={toggleReminder}
+                />
+              ) : (
+                <center>No tasks</center>
+              )
+            }
+          />
+        </Routes>
+
+        <Footer />
+      </div>
+    </Router>
   )
 }
 
