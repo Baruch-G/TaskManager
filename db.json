@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "id": 2,
+      "text": "fighting the monsters",
+      "day": "yesteday",
+      "reminder": true
+    },
+    {
+      "id": 3,
+      "text": "Killing myself",
+      "day": "Just today",
+      "reminder": false
+    },
+    {
+      "id": 4,
+      "text": "Screaming in hell",
+      "day": "tomorrow",
+      "reminder": false
+    }
+  ]
+}

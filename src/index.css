@@ -110,3 +110,10 @@ footer {
   margin-top: 30px;
   text-align: center;
 }
+
+.disable-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
